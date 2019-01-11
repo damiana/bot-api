@@ -1,0 +1,32 @@
+{
+  "name": "bot-api",
+  "version": "1.0.0",
+  "description": "Implement an API for our Bots.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon --inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damiana/bot-api.git"
+  },
+  "keywords": [
+    "bots",
+    "bot",
+    "api-bot"
+  ],
+  "author": "Damiana Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damiana/bot-api/issues"
+  },
+  "homepage": "https://github.com/damiana/bot-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http-status-codes": "^1.3.0",
+    "nodemon": "^1.18.9",
+    "request": "^2.88.0"
+  }
+}
