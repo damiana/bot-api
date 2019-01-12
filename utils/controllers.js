@@ -1,5 +1,6 @@
 'use strict';
 const HttpStatus = require('http-status-codes');
+const uuidv1 = require('uuid/v1');
 
 function responseJson(res, data, code = HttpStatus.OK) {
   res.status(code);
@@ -13,7 +14,14 @@ function responseErrorJson(res, methodName, error, code = HttpStatus.INTERNAL_SE
   });
 }
 
+function generateUUIDV() {
+  //formated: '6c84fb90-12c4-11e1-840d-7b25c5ee775a'
+  return uuidv1();
+}
+
+
 module.exports = exports = {
   responseJson,
-  responseErrorJson
+  responseErrorJson,
+  generateUUIDV
 };
