@@ -9,12 +9,12 @@ function findAll(callback) {
     global.conn.collection('bots').find({}).toArray(callback);
 };
 
-function insert(bot, callback){
-    global.conn.collection('bots').insert(bot, callback);
-};
-
 function findOne(id, callback){
     global.conn.collection('bots').find({'id': id}).toArray(callback);
+};
+
+function insert(bot, callback){
+    global.conn.collection('bots').insert(bot, callback);
 };
 
 function updateOne(id, name, callback){
@@ -25,10 +25,27 @@ function deleteOne(id, callback){
     global.conn.collection('bots').deleteOne({'id': id}, callback);
 }
 
+//APIs Messages
+function findAllMessage(callback) {  
+    global.conn.collection('messages').find({}).toArray(callback);
+};
+
+function findOneMessage(id, callback){
+    global.conn.collection('messages').find({'id': id}).toArray(callback);
+};
+
+function insertMessage(messages, callback){
+    global.conn.collection('messages').insert(messages, callback);
+};
+
+
 module.exports = {
     findAll,
     insert,
     findOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    findAllMessage,
+    findOneMessage,
+    insertMessage
 };

@@ -47,8 +47,7 @@ function insert(req) {
             console.log('Error insert record: ' + err);
             reject('Error insert record: ' + err);
         }
-    });
-    
+    });   
 }
 
 function update(req) {
