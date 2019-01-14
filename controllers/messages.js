@@ -4,9 +4,9 @@ const serviceMessages = require('../services/messages')
 
 
 function findAll(req, res) {
-    return serviceMessages.getAll()
+    return serviceMessages.getAll(req)
       .then(records => responseJson(res, {
-        aaaaa: records
+        record: records
       }))
       .catch((err) => responseErrorJson(res, 'serviceMessages:getAll', err));
 };

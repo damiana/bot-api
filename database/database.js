@@ -34,6 +34,11 @@ function findOneMessage(id, callback){
     global.conn.collection('messages').find({'id': id}).toArray(callback);
 };
 
+function findConversationId(conversationId, callback){
+   //global.conn.collection('messages').find( {}, {'conversationId':conversationId} ).toArray(callback);
+   global.conn.collection('messages').find({ 'conversationId':{'$eq':conversationId}}).toArray(callback);
+};
+
 function insertMessage(messages, callback){
     global.conn.collection('messages').insert(messages, callback);
 };
@@ -43,6 +48,7 @@ module.exports = {
     findAll,
     insert,
     findOne,
+    findConversationId,
     updateOne,
     deleteOne,
     findAllMessage,

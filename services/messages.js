@@ -2,13 +2,23 @@ const util = require("../utils/controllers");
 const database = require('../database/database');
 const moment = require('moment');
 
-function getAll() {
+function getAll(req) {
     return new Promise((resolve, reject) => {
         try {
-            database.findAllMessage((e, docs) => {
-                if (e) { return console.log(e); }
-                resolve(docs);
-            })
+            let conversationId = req.query.conversationId;
+            console.log("conversationId", req.query.conversationId);
+            if (typeof conversationId == 'undefined') {
+                database.findAllMessage((e, docs) => {
+                    if (e) { return console.log(e); }
+                    resolve(docs);
+                })
+            } else {
+                database.findConversationId(conversationId, (e, docs) => {
+                    console.log(docs)
+                    if (e) { return console.log(e); }
+                    resolve(docs);
+                })
+            }
         } catch(err) {
             console.log('Error fetching records : ' + err);
             reject('Error fetching records: ' + err);
